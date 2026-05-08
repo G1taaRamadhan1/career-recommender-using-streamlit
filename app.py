@@ -46,7 +46,15 @@ def inject_custom_css():
     /* Hide Streamlit branding */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
-    header {visibility: hidden;}
+
+    /* Keep header transparent so sidebar toggle button stays accessible */
+    header[data-testid="stHeader"] {
+    background: transparent;
+    height: 0;
+    }
+    header[data-testid="stHeader"] [data-testid="stToolbar"] {
+    display: none;
+    }
 
     /* Main container padding */
     .main .block-container {
