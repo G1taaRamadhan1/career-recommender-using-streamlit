@@ -1,77 +1,133 @@
-# 🎓 Sistem Rekomendasi Karier untuk Siswa
+# 🎓 Career Recommendation System for Students
 
-Proyek Akhir Machine Learning Terapan – Dicoding.
+## 🎯 Overview
 
-Aplikasi web yang merekomendasikan karier kepada siswa SMA berdasarkan profil akademik mereka (nilai mata pelajaran, jam belajar, ekstrakurikuler, dll) menggunakan **Content-Based Filtering** dengan algoritma cosine similarity.
+Choosing the right career path is one of the most important decisions a student makes. However, with countless career options available, many students feel overwhelmed and uncertain about which direction aligns best with their abilities and interests.
 
-## 🚀 Demo
+This project provides a **data-driven solution** by analyzing students' academic performance, study patterns, and extracurricular involvement to recommend the most suitable career aspirations using machine learning.
 
-🔗 **Link Aplikasi**: [https://your-app-name.streamlit.app](#) *(akan diisi setelah deploy)*
+### Why This Matters
+
+- **11% of students** in the original dataset (223 out of 2,000) had no clear career direction
+- Career mismatch leads to lower job satisfaction and reduced productivity
+- Data-driven recommendations can complement traditional guidance counseling
+
+---
+
+## ✨ Features
+
+🏠 **Interactive Dashboard** — Get an overview of dataset statistics and career distribution
+
+🔍 **Existing Student Lookup** — Browse students from the database and view their personalized recommendations
+
+✏️ **Custom Profile Input** — Enter any student profile manually and receive instant career recommendations
+
+📊 **Data Exploration** — Visualize career distributions, score patterns, and inter-subject correlations
+
+🎯 **Confidence Scoring** — Each recommendation comes with a confidence percentage to support decision-making
+
+---
+
+## 🚀 Live Demo
+
+🔗 **Try the app**: https://career-recommender-for-students-by-gita.streamlit.app
+
+---
+
+## 🤖 How It Works
+
+### Algorithm: Content-Based Filtering with Cosine Similarity
+
+The system follows a **3-step approach**:
+
+```
+Student Profile → Feature Extraction → Similarity Computation → Career Recommendations
+```
+
+1. **Feature Engineering** — 12 normalized features extracted from each student's profile:
+   - 7 academic scores (Math, Physics, Chemistry, Biology, History, English, Geography)
+   - 5 behavioral attributes (study hours, attendance, extracurricular activities, part-time job, gender)
+
+2. **Similarity Computation** — Cosine similarity is calculated between the target student and all 1,777 students in the database
+
+3. **Weighted Voting** — Top-50 most similar students are identified, and their career aspirations are aggregated using similarity-weighted voting to produce ranked recommendations
+
+---
 
 ## 📊 Dataset
 
-Dataset berasal dari Kaggle:  
-[Student Studeis Recommendation](https://www.kaggle.com/datasets/noorsaeed/student-studeis-recommendation)
+The system is trained on a publicly available student dataset containing **2,000 records** with **17 attributes**:
 
-- 2.000 siswa
-- 17 kolom (nilai 7 mapel + profil + cita-cita karier)
-- 17 jenis cita-cita karier
+- **Demographics**: gender, ID
+- **Behavioral**: part-time job status, extracurricular participation, absence days, weekly study hours
+- **Academic**: scores in 7 core subjects (0-100 scale)
+- **Target**: career aspiration (17 distinct categories)
 
-## 🤖 Model
+---
 
-**Content-Based Filtering** dengan:
-- Cosine similarity antar profil siswa
-- Weighted voting dari top-50 nearest neighbors
-- 12 fitur: gender, part-time job, absen, ekskul, jam belajar, 7 nilai mata pelajaran
+## 🔮 Future Enhancements
 
-**Performa**:
-- Hit Rate Top-5: 76.76%
-- Hit Rate Top-7: 86.44%
-- Hit Rate Top-10: 94.60%
+- [ ] Implement **Collaborative Filtering** with neural network embeddings
+- [ ] Build a **Hybrid Recommender** combining content-based and collaborative approaches
+- [ ] Add **explainability features** to show why a career was recommended
+- [ ] Integrate **personality assessments** (e.g., MBTI, RIASEC) for richer profiling
+- [ ] Support **multi-language interface** (English, Indonesian)
+- [ ] Add **historical job market data** to suggest in-demand careers
+- [ ] Build a **mobile-responsive PWA** version
 
-## 🛠️ Cara Menjalankan Lokal
+---
 
-```bash
-# 1. Clone repo
-git clone https://github.com/username/career-recommender-streamlit.git
-cd career-recommender-streamlit
+## 🤝 Contributing
 
-# 2. Buat virtual environment (opsional tapi disarankan)
-python -m venv venv
-source venv/bin/activate     # Linux/Mac
-# venv\Scripts\activate      # Windows
+Contributions are welcome! If you'd like to improve this project:
 
-# 3. Install dependencies
-pip install -r requirements.txt
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-# 4. Run aplikasi
-streamlit run app.py
-```
+For major changes, please open an issue first to discuss what you would like to change.
 
-Aplikasi akan terbuka di `http://localhost:8501`
+---
 
-## 📁 Struktur File
+## 📜 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
 
 ```
-career-recommender-streamlit/
-├── app.py                  # Aplikasi Streamlit utama
-├── requirements.txt        # Dependencies Python
-├── student-scores.csv      # Dataset
-├── README.md               # Dokumentasi
-└── .gitignore              # File yg di-ignore Git
+Copyright (c) 2026 [Your Name]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files...
 ```
 
-## 🎯 Fitur Aplikasi
+If you use this project as a reference, please consider citing it:
 
-1. **🏠 Beranda** — overview aplikasi dan statistik dataset
-2. **🔍 Cari Siswa di Dataset** — pilih siswa yang ada, lihat rekomendasi karier
-3. **✏️ Input Profil Siswa Baru** — masukkan profil siswa baru, dapatkan rekomendasi instant
-4. **📊 Eksplorasi Dataset** — lihat statistik dan distribusi data
+```bibtex
+@software{career_recommender_2026,
+  author = {Gita Ramadhani W.S},
+  title = {Career Recommendation System for Students},
+  year = {2026},
+  url = {https://github.com/G1taaRamadhan1/career-recommender-using-streamlit.git}
+}
+```
 
-## 📜 Lisensi
-
-MIT License – Bebas dipakai untuk keperluan edukasi.
+---
 
 ## 👤 Author
 
-Proyek Akhir Dicoding Machine Learning Terapan
+**Gita Ramadhani W.S**
+
+- 🐙 GitHub: [@G1taaRamadhan1](https://github.com/G1taaRamadhan1)
+- 💼 LinkedIn: [Gita Ramadhani W.S](https://linkedin.com/in/gitaramadhaniws)
+- 📧 Email: workwith.gitaramadhani@gmail.com
+
+---
+
+## ⭐ Show Your Support
+
+If this project helped you, please consider giving it a ⭐ on GitHub!
+
+---
+
