@@ -43,26 +43,6 @@ def inject_custom_css():
         font-family: 'Inter', sans-serif;
     }
 
-    /* Hide Streamlit branding but KEEP sidebar toggle button */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-
-    /* Hide top toolbar items but keep header structure intact */
-    [data-testid="stToolbar"] {
-    visibility: hidden;
-    }
-
-    /* Make sure sidebar collapse/expand button is always visible */
-    [data-testid="collapsedControl"] {
-    visibility: visible !important;
-    display: block !important;
-    z-index: 999999 !important;
-    }
-    [data-testid="stSidebarCollapseButton"] {
-    visibility: visible !important;
-    display: block !important;
-    }
-
     /* Main container padding */
     .main .block-container {
         padding-top: 2rem;
